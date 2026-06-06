@@ -1,0 +1,38 @@
+Saya telah melakukan perbaikan langsung pada file survey.ts dan
+  server.ts. Berikut adalah rangkuman perubahan yang telah
+  diimplementasikan:
+
+  1. Perbaikan pada survey.ts
+   * Struktur Response Baru: Saya membuat interface KategoriResponse yang
+     membungkus array data dan objek metadata (current_page, last_page,
+     total). Ini jauh lebih hemat token karena informasi halaman tidak
+     diulang di setiap baris.
+   * Konstruksi URL: Parameter search dan page sekarang digabung dengan
+     benar menggunakan URLSearchParams. URL yang dihasilkan sekarang valid
+     (misal: /kategori?search=dosen&page=1).
+   * Penanganan Data Kosong: Saya menghapus throw Error saat data kosong.
+     Sekarang, jika pencarian tidak ditemukan, sistem akan mengembalikan
+     array kosong [], sehingga Agent bisa merespons dengan sopan daripada
+     menampilkan pesan error sistem.
+
+  2. Perbaikan pada server.ts
+   * Pembersihan Impor: Menghapus impor zod yang tidak digunakan yang
+     sebelumnya menyebabkan potensi kebingungan tipe data.
+   * Sinkronisasi postProdi: Memastikan required field menggunakan
+     nama_prodi (sebelumnya ada typo/ketidakcocokan nama).
+   * Sinkronisasi getKategori: Parameter page sudah menggunakan tipe
+     "number" yang dapat dipahami oleh model.
+
+  Catatan Penting:
+  Saat saya mengecek file survey.ts, saya melihat fungsi lain seperti
+  getPertanyaan, getPeriode, dan getResponden juga menggunakan pola
+  paginasi yang sama dari Laravel (res.data.data.data).
+
+  Saran: Jika Anda ingin Agent bisa melakukan pencarian dan melihat halaman
+  berikutnya di tabel-tabel tersebut, Anda perlu menerapkan pola yang sama
+  (menambahkan parameter search & page) pada fungsi-fungsi tersebut juga.
+
+  Silakan coba jalankan kembali dengan perintah npx tsx src/server.ts dan
+  tes dengan pertanyaan:
+  "Cari kategori bernama Penilaian dosen" atau "Tampilkan kategori halaman
+  2". Sekarang Agent seharusnya memanggil tool dengan argumen yang benar!
