@@ -2,11 +2,11 @@
 
 ## Latar Belakang
 
-Sistem ini dibuat karena admin HR di sebuah yayasan kesulitan membuat survei baru setiap periode — harus mengisi ulang pertanyaan yang sama berulang kali di Google Form.
+Sistem ini dibuat karena admin HR di sebuah yayasan kesulitan membuat survei baru setiap periode harus mengisi ulang pertanyaan yang sama berulang kali di Google Form.
 
 Survey 360 menyelesaikan ini dengan dua cara:
 1. Pertanyaan dan survei bersifat **reusable** — tidak perlu dibuat ulang setiap periode, cukup diaktifkan kembali kapan pun dibutuhkan
-2. Admin bisa membuat seluruh data survei cukup dengan **satu perintah teks ke AI agent via Telegram** — agent yang mengerjakan semua CRUD ke database secara otomatis
+2. Admin bisa membuat seluruh data survei cukup dengan **satu perintah teks ke AI agent via Telegram** agent yang mengerjakan semua CRUD ke database secara otomatis
 
 ---
 
